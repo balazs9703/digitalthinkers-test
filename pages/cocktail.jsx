@@ -13,11 +13,12 @@ export default function Cocktail({ cocktailData }) {
   async function onSearchClick(filters) {
     setDrinks(await getSearchedCocktail(filters))
   }
+  console.log(drinks);
 
   return (
     <div className="bg-gray-900 min-h-screen">
       <Head>
-        <title>Digitaltinkers Cocktail</title>
+        <title>Digitaltinkers Cocktail Listing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -31,6 +32,7 @@ export default function Cocktail({ cocktailData }) {
             <CocktailCard {...drink} key={drink.idDrink} />
           )
         }
+        {drinks.length === 0 && (<h1 className="mt-5 text-white text-center"> No drinks...</h1>)}
 
       </main>
     </div>
